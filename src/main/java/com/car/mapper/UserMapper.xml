@@ -5,4 +5,34 @@
     <select id="findByTel" parameterType="string" resultType="com.car.entity.User">
         select  * from sys_user where tel =#{tel}
     </select>
+    <insert id="register" parameterType="com.car.entity.User">
+        insert into sys_user(
+            <if test="tel !=null">
+                tel,
+            </if>
+            <if test="password !=null">
+                password,
+            </if>
+            <if test="email !=null">
+                email,
+            </if>
+            <if test="invitation !=null">
+                invitation
+            </if>
+
+        ) values (
+                <if test="tel !=null">
+                    #{tel},
+                </if>
+                <if test="password !=null">
+                    #{password},
+                </if>
+                <if test="email !=null">
+                    #{email},
+                </if>
+                <if test="invitation !=null">
+                    #{invitation}
+                </if>
+        )
+    </insert>
 </mapper>

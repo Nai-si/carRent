@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>车速递租车首页</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
     <link rel="stylesheet" href="css/pagehome.index.css">
     <script type="application/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="application/javascript" src="js/bootstrap.min.js"></script>
@@ -20,7 +20,7 @@
             <div data-v-67ef3a4a class="left csdnav">
                 <label data-v-67ef3a4a>
                     <a data-v-67ef3a4a href="#">你好，</a>
-                    <a data-v-67ef3a4a href="javascript:void" class="colorRed">/</a>
+                    <span id="username"></span>
                     <a data-v-67ef3a4a href="index.html" class="colorRed" style="margin-right: 10px;">[退出]</a>
                 </label>
 
@@ -28,10 +28,10 @@
                 <a data-v-67ef3a4a="" href="#mobileZuChe">手机租车</a>
                 <a data-v-67ef3a4a="" href="helpCenter.html">帮助中心</a>
             </div>
-            <div data-v-67ef3a4a="" class="right phone">
+            <div data-v-67ef3a`4a="" class="right phone">
                 <div data-v-67ef3a4a="" class="typeTab">
                     <a data-v-67ef3a4a="" href="index.html" style="color: rgb(199, 0, 11);">中文</a>&nbsp;/&nbsp;
-                    <a data-v-67ef3a4a="" href="../en/index.html">English</a>
+                    <a data-v-67ef3a4a="" href="index.html">English</a>
                 </div>
                 <div data-v-67ef3a4a="" class="menu">
                     <a data-v-67ef3a4a="" href="mymain/mymain.html">我的车速递</a>
@@ -464,6 +464,21 @@
         element.on('tab(test)', function(elem){
             location.hash = 'test='+ $(this).attr('lay-id');
         });
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"query.do",
+                dataType:"json",
+                success:function(data){
+                    if(data.code==1){
+                        $("#username").html(data.info.tel)
+                    }else{
+                        alert("未登录")
+                        window.location.href="login.html"
+                    }
+                }
+            })
+        })
 
         var form = layui.form
             ,layer = layui.layer

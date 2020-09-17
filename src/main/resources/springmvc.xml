@@ -89,7 +89,7 @@
     <!--            &ndash;&gt;-->
 
     <!--            <mvc:exclude-mapping path="/**/login.*"/>-->
-    <!--            <bean class="com.qfedu.interceptor.LoginInterceptor"/>-->
+    <!--            <bean class="com.car.interceptor.LoginInterceptor"/>-->
     <!--        </mvc:interceptor>-->
     <!--    </mvc:interceptors>-->
 

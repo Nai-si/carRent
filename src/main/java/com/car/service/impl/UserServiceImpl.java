@@ -30,4 +30,15 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
+
+    @Override
+    public void register(String tel, String password, String email, String invitation) {
+        User user = new User();
+        user.setTel(tel);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setInvitation(invitation);
+
+        userDao.register(user);
+    }
 }

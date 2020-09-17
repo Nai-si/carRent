@@ -10,4 +10,6 @@ import com.car.entity.User;
  */
 public interface UserDao {
     public User findByTel(String tel);
+
+    public void register(User user);
 }

@@ -38,6 +38,11 @@ public class LoginController {
         return new JsonResult(1,user);
     }
 
+    /**
+     * 获取登录用户信息
+     * @param session
+     * @return
+     */
     @RequestMapping("/query.do")
     @ResponseBody
     public JsonResult query(HttpSession session){
@@ -49,5 +54,18 @@ public class LoginController {
         }
     }
 
+    /**
+     * 用户注册
+     * @return
+     */
+    @RequestMapping("/register.do")
+    @ResponseBody
+    public JsonResult register(String tel , String password,String email,String invitation){
+
+        userService.register(tel,password,email,invitation);
+        User user = userService.login(tel, password);
+        return new JsonResult(1,user);
+
+    }
 
 }

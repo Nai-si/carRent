@@ -154,7 +154,7 @@
     </dependencies>
 
     <build>
-        <finalName>banksys</finalName>
+        <finalName>carRent</finalName>
         <resources>
             <!--需要设置打包的文件 特别是非java文件-->
             <resource>
@@ -180,7 +180,7 @@
                 <version>2.2</version>
                 <configuration>
                     <uriEncoding>UTF-8</uriEncoding>
-                    <path>/banksys</path>
+                    <path>/carRent</path>
                 </configuration>
             </plugin>
             <!-- 编译插件 -->

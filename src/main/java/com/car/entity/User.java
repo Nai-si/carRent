@@ -14,6 +14,7 @@ public class User {
     private String email;
     private String invitation;
 
+
     public Integer getId() {
         return id;
     }
