@@ -13,4 +13,93 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 扫描控制器的注解 -->
+    <context:component-scan base-package="com.car.controller, com.car.common"/>
+
+    <!--    如果想要在控制器中方法的参数上直接使用验证器的话，就必须加这个类-->
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+
+    <!-- 重要配置！！！ -->
+    <!--    设置转换的服务-->
+    <mvc:annotation-driven conversion-service="convertorService" validator="validator"/>
+    <!-- 重要配置！！！ -->
+    <mvc:annotation-driven>
+        <!-- 处理json里的日期数据，默认日期被fastjson转为时间戳数据 -->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!--    设置自定义的转化器-->
+    <bean id="convertorService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.car.convert.CustomerDateConvert"/>
+
+            </list>
+        </property>
+
+    </bean>
+
+    <!-- 配置资源文件 -->
+    <bean id="hibernateMessages" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>ValidationMessages</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- 配置验证器 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="hibernateMessages"/>
+    </bean>
+
+    <!--  url-pattern配置成/后，  使用如下配置将静态资源交给web服务器默认的servlet进行处理 -->
+    <mvc:default-servlet-handler/>
+    <!-- 文件上传的解析器  id的值不能改-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 上传文件的最大大小 ，单位字节 ，比如 1024 * 1024 = 1M-->
+        <property name="maxUploadSize" value="1048576"/>
+
+    </bean>
+    <!--    &lt;!&ndash;拦截器相关的配置&ndash;&gt;-->
+    <!--    <mvc:interceptors>-->
+    <!--        <mvc:interceptor>-->
+    <!--            &lt;!&ndash;            拦截所有资源包括一些静态资源  js&ndash;&gt;-->
+    <!--            <mvc:mapping path="/**"/>-->
+    <!--            &lt;!&ndash;除了js文件夹的所有的文件不被拦截其他的被拦截&ndash;&gt;-->
+    <!--            <mvc:exclude-mapping path="/js/**"/>-->
+    <!--            <mvc:exclude-mapping path="/layui/**"/>-->
+    <!--            &lt;!&ndash;除了login.html login.do  不被拦截，其他的被拦截-->
+    <!--            &ndash;&gt;-->
+
+    <!--            <mvc:exclude-mapping path="/**/login.*"/>-->
+    <!--            <bean class="com.qfedu.interceptor.LoginInterceptor"/>-->
+    <!--        </mvc:interceptor>-->
+    <!--    </mvc:interceptors>-->
+
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀 -->
+        <property name="prefix" value="/"/>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"/>
+
+    </bean>
 </beans>
