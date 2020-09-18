@@ -68,4 +68,11 @@ public class LoginController {
 
     }
 
+    @RequestMapping("/loginStusta.do")
+    @ResponseBody
+    public JsonResult loginStusta(HttpSession session){
+        User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
+        return new JsonResult(1,user.getTel());
+    }
+
 }
