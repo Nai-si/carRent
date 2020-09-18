@@ -1,6 +1,6 @@
 package com.car.service.impl;
 
-import com.car.dao.CarDao;
+import com.car.dao.CityDao;
 import com.car.entity.City;
 import com.car.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +18,18 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
 
     @Autowired
-    private CarDao carDao;
+    private CityDao cityDao;
 
 
     @Override
     public List<City> selectAll(int pid) {
-        List<City> list = carDao.selectAll(pid);
+        List<City> list = cityDao.selectAll(pid);
         return list;
     }
 
     @Override
     public City selectMsg(int id) {
-        City city = carDao.selectMsg(id);
+        City city = cityDao.selectMsg(id);
         return city;
     }
 }
