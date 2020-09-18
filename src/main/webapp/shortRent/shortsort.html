@@ -118,7 +118,7 @@
                 //z找到table  id叫test的组件
                 elem: '#test'
                 , id: "transferTable"
-                , url: 'http://localhost:8080/TestThreeProject/city/showCar.do'
+                , url: '/car/showCar.do'
                 , totalRow: true
                 //这个很关键，就是解析 json数据库中数据的 一定要注意键值
                 , cols: [[
@@ -177,7 +177,7 @@
     $(function(){
         $.ajax({
             type:"get",
-            url:"http://localhost:8080/TestThreeProject/city/selectName.do",
+            url:"/city/selectName.do",
             dataType:"json",
             success:function(data){
                 console.log(data)
