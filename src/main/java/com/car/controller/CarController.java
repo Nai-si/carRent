@@ -1,6 +1,7 @@
 package com.car.controller;
 
 
+import com.car.common.JsonResult;
 import com.car.entity.Car;
 import com.car.service.CarService;
 import com.car.utils.DistrictUtils;
@@ -38,5 +39,12 @@ public class CarController {
         map.put("count",total);
         map.put("data",cars);
         return map;
+    }
+
+    @RequestMapping("/findCar.do")
+    @ResponseBody
+    public JsonResult findCar(int id){
+        Car car = carService.findCar(id);
+        return new JsonResult(1,car);
     }
 }

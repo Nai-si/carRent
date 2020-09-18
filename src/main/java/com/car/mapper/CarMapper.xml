@@ -5,4 +5,7 @@
     <select id="selectByCityId" parameterType="int" resultType="com.car.entity.Car">
         select * from sys_car where cid = #{cid}
     </select>
+    <select id="findCar" parameterType="int" resultType="com.car.entity.Car">
+        select * from sys_car where id=#{id}
+    </select>
 </mapper>

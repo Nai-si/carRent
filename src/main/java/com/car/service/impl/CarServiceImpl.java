@@ -30,4 +30,10 @@ public class CarServiceImpl implements CarService {
         }
         return cars;
     }
+
+    @Override
+    public Car findCar(int id) {
+        Car car = carDao.findCar(id);
+        return car;
+    }
 }

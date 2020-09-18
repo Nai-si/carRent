@@ -14,4 +14,5 @@ public interface CarService {
 
     public List<Car> selectByCityId(int cid,Integer page,Integer limit);
 
+    public Car findCar(int id);
 }

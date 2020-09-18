@@ -14,4 +14,6 @@ public interface CarDao {
 
     public List<Car> selectByCityId(int cid);
 
+    public Car findCar(int id);
+
 }
