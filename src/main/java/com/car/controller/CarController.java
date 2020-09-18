@@ -28,6 +28,12 @@ public class CarController {
     @Autowired
     private CarService carService;
 
+    /**
+     * 车辆信息展示
+     * @param page
+     * @param limit
+     * @return
+     */
     @RequestMapping("/showCar.do")
     @ResponseBody
     public Map<String ,Object> showCar(Integer page,Integer limit){
@@ -41,10 +47,17 @@ public class CarController {
         return map;
     }
 
+    /**
+     * 车辆查询
+     * @param id
+     * @return
+     */
     @RequestMapping("/findCar.do")
     @ResponseBody
     public JsonResult findCar(int id){
         Car car = carService.findCar(id);
         return new JsonResult(1,car);
     }
+
+
 }

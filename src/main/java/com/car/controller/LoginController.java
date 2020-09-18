@@ -68,6 +68,11 @@ public class LoginController {
 
     }
 
+    /**
+     * 获取用户手机号
+     * @param session
+     * @return
+     */
     @RequestMapping("/loginStusta.do")
     @ResponseBody
     public JsonResult loginStusta(HttpSession session){

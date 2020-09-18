@@ -30,6 +30,13 @@ public class OrderController {
     @Autowired
     private CityService cityService;
 
+    /**
+     * 预定车辆
+     * @param id
+     * @param oprice
+     * @param session
+     * @return
+     */
     @RequestMapping("/addCar.do")
     @ResponseBody
     public JsonResult addCar(Integer id, double oprice, HttpSession session){
