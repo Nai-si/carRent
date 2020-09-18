@@ -16,4 +16,5 @@ public interface CityService {
 
     public List<City> selectAll(int pid);
 
+    public City selectMsg(int id);
 }

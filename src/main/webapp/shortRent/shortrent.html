@@ -79,7 +79,7 @@
         /* 租车地点的区级下拉框的动态添加 */
         form.on('select(quiz1)', function (data) {
             layui.$.ajax({              // 使用layui模块化加载
-                url: "http://localhost:8080/carRent/city/select.do?pid=" + data.value,
+                url: "/city/select.do?pid=" + data.value,
                 dataType: 'json',
                 type: 'get',
                 success: function (data) {
@@ -95,7 +95,7 @@
         /* 还车地点的区级下拉框的动态添加 */
         form.on('select(quiz3)', function (data) {
             layui.$.ajax({              // 使用layui模块化加载
-                url: "http://localhost:8080/caeRent/city/select.do?pid=" + data.value,
+                url: "/city/select.do?pid=" + data.value,
                 dataType: 'json',
                 type: 'get',
                 success: function (data) {

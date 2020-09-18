@@ -3,6 +3,7 @@ package com.car.controller;
 import com.car.common.JsonResult;
 import com.car.entity.City;
 import com.car.service.CityService;
+import com.car.utils.DistrictUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +42,21 @@ public class CityController {
         List<City> list = cityService.selectAll(i);
         System.out.println(i);
         return new JsonResult(1,list);
+    }
+
+
+    /**
+     * 获取店铺信息
+     * @return
+     */
+    @RequestMapping("/selectName.do")
+    @ResponseBody
+    public JsonResult selectName(){
+        City city = cityService.selectMsg(DistrictUtils.getQuiz1());
+        City city1 = cityService.selectMsg(DistrictUtils.getQuiz4());
+        String[] citys = {city.getName() , city1.getName()};
+        return new JsonResult(1,citys);
+
     }
 
 }

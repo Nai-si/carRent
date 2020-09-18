@@ -5,5 +5,9 @@
     <select id="selectAll" parameterType="int" resultType="com.car.entity.City">
         select * from sys_city where pid = #{pid}
     </select>
+    <select id="selectMsg" parameterType="int" resultType="com.car.entity.City">
+        select * from sys_city where id =#{id}
+    </select>
+
 
 </mapper>

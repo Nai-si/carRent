@@ -26,4 +26,10 @@ public class CityServiceImpl implements CityService {
         List<City> list = carDao.selectAll(pid);
         return list;
     }
+
+    @Override
+    public City selectMsg(int id) {
+        City city = carDao.selectMsg(id);
+        return city;
+    }
 }
