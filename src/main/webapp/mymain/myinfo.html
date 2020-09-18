@@ -82,20 +82,21 @@
                 <a data-v-3aaf9db2="" href="about.html">关于车速递</a></div></div></div>
 
 </div>
-<!--<script type="text/javascript">-->
-<!--    $(function () {-->
-<!--        // sp3-->
-<!--        $.ajax({-->
-<!--            type: "get",-->
-<!--            url: "http://localhost:8080/TestThreeProject/loginStusta.do",-->
-<!--            dataType: "json",-->
-<!--            success: function (data) {-->
-<!--                console.log(data)-->
-<!--                $(".sp3").html(data.info)-->
-<!--            }-->
-<!--        })-->
-<!--    })-->
-<!--</script>-->
+<script type="text/javascript">
+    $(function () {
+        // sp3
+        $.ajax({
+            type: "get",
+            url: "/loginStusta.do",
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                $(".sp3").html(data.info)
+            }
+        })
+    })
+</script>
+
 
 <script type="text/javascript">
     var vm = new Vue({
@@ -109,7 +110,7 @@
     $(function () {
         $.ajax({
             type:"get",
-            url:"query.do",
+            url:"/query.do",
             dataType:"json",
             success:function(data){
                 //id为0时为父类
