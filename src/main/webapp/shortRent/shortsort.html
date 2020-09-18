@@ -131,8 +131,6 @@
                     , {fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}
                 ]]
                 , page: true //分页开启
-
-
             });
 
         });
@@ -167,7 +165,7 @@
             var data = obj.data;
             if(obj.event === 'detail'){
                 // layer.msg('ID：'+ data.id + ' 的查看操作');
-                window.location.href="http://localhost:8080/TestThreeProject/order/ordersubmit.html"+"?id="+data.id;
+                window.location.href="../order/ordersubmit.html"+"?id="+data.id;
             }
         });
         });

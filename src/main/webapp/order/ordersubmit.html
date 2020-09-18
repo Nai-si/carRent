@@ -126,7 +126,7 @@
         $(function(){
             $.ajax({
                 type:"get",
-                url:"http://localhost:8080/TestThreeProject/city/selectName.do",
+                url:"/city/selectName.do",
                 dataType:"json",
                 success:function(data){
                     if(data.code==1) {
@@ -193,7 +193,7 @@
             console.log(total)
             $.ajax({
                 type:"get",
-                url:"http://localhost:8080/TestThreeProject/addCar.do"+id + "&oprice="+ total,
+                url:"/order/addCar.do"+id + "&oprice="+ total,
                 dataType:"json",
                 success:function(data){
                     if(data.code!=0){
@@ -203,7 +203,7 @@
                         }else{
                         console.log(data)
                         alert(data.info);
-                        window.location.href="http://localhost:8080/TestThreeProject/login.html"
+                        window.location.href="/login.html"
                     }
                 },
                 error : function(){

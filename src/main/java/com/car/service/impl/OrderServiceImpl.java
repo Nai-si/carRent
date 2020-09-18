@@ -1,0 +1,27 @@
+package com.car.service.impl;
+
+import com.car.dao.OrderDao;
+import com.car.entity.Order;
+import com.car.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @ProjectName: carRent
+ * @Author: Jsx
+ * @Time: 2020/9/18 16:46
+ * @Description:
+ */
+@Service
+public class OrderServiceImpl implements OrderService {
+    @Autowired
+    private OrderDao orderDao;
+
+    @Override
+    public void addCar(Order order) {
+        if (order == null) {
+            throw new RuntimeException("订单信息错误");
+        }
+        orderDao.addCar(order);
+    }
+}
