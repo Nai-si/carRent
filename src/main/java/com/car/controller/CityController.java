@@ -59,4 +59,24 @@ public class CityController {
 
     }
 
+    /**
+     * 根据选择的城市去租车
+     * @param quiz1
+     * @param quiz2
+     * @param quiz3
+     * @param quiz4
+     * @return
+     */
+    @RequestMapping("/button.do")
+    @ResponseBody
+    public JsonResult button(Integer quiz1,Integer quiz2,Integer quiz3,Integer quiz4){
+        if (quiz1==null||quiz2==null||quiz3==null||quiz4==null){
+            return new JsonResult(0,"请选择正确的城市或门店");
+        }
+        DistrictUtils.setQuiz1(quiz1);
+        DistrictUtils.setQuiz2(quiz2);
+        DistrictUtils.setQuiz3(quiz3);
+        DistrictUtils.setQuiz4(quiz4);
+        return new JsonResult(1,"选择成功,请稍后");
+    }
 }

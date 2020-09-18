@@ -112,7 +112,7 @@
             console.log(data.field)
             layui.$.ajax({
                 type: 'post',
-                url: 'http://localhost:8080/carRent/city/button.do',
+                url: '/city/button.do',
                 data: $("#form1").serialize(),
                 dataType: 'json',
                 success: function (data) {
