@@ -1,6 +1,9 @@
 package com.car.dao;
 
 import com.car.entity.Order;
+import com.car.entity.OrderTwo;
+
+import java.util.List;
 
 /**
  * @ProjectName: carRent
@@ -10,4 +13,6 @@ import com.car.entity.Order;
  */
 public interface OrderDao {
     public void addCar(Order order);
+
+    public List<OrderTwo> orderSelect(int id);
 }

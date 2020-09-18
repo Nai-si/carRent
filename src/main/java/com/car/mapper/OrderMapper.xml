@@ -7,4 +7,13 @@
         insert into sys_order (cid,uid,getid,backid,oprice,status)
         values (#{cid},#{uid},#{getid},#{backid},#{oprice},#{status})
     </select>
+    <select id="orderSelect" parameterType="int" resultType="com.car.entity.OrderTwo">
+        select o.id,c.name,t.name as getCar,y.name as backCar,o.oprice,o.status
+        from sys_order o
+        inner join sys_car c on o.cid=c.id
+        inner join sys_city t on t.id=o.getid
+        inner join sys_city y on y.id=o.backid
+        inner join sys_user u
+        where u.id=o.uid and u.id=#{id}
+    </select>
 </mapper>

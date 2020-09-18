@@ -3,17 +3,22 @@ package com.car.controller;
 import com.car.common.JsonResult;
 import com.car.entity.City;
 import com.car.entity.Order;
+import com.car.entity.OrderTwo;
 import com.car.entity.User;
 import com.car.service.CityService;
 import com.car.service.OrderService;
 import com.car.utils.DistrictUtils;
 import com.car.utils.StrUtils;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: carRent
@@ -59,6 +64,24 @@ public class OrderController {
         orderService.addCar(order);
         return new JsonResult(1,"预定成功");
 
+    }
+
+    @RequestMapping("/orderSelect.do")
+    @ResponseBody
+    public Map<String , Object> orderSelect(Integer page,Integer limit,HttpSession session){
+        User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
+        if (user == null) {
+            return null;
+        }
+        Integer id = user.getId();
+        List<OrderTwo> orders = orderService.orderSelect (id,page,limit);
+        long total = ((Page) orders).getTotal();
+        Map<String , Object> map = new HashMap<>();
+        map.put("code",0);
+        map.put("msg","");
+        map.put("count",total);
+        map.put("data",orders);
+        return map;
     }
 
 }

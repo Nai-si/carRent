@@ -109,7 +109,7 @@
     $(function () {
         $.ajax({
             type:"get",
-            url:"http://localhost:8080/TestThreeProject/query.do",
+            url:"query.do",
             dataType:"json",
             success:function(data){
                 //id为0时为父类
@@ -126,7 +126,7 @@
 
 <script>
         $("#button").click(function(){
-            window.location.href="http://localhost:8080/TestThreeProject/"
+            window.location.href="http://localhost:8080/carRent/"
         })
 
 </script>
