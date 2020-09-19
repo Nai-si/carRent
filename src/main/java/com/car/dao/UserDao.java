@@ -12,4 +12,6 @@ public interface UserDao {
     public User findByTel(String tel);
 
     public void register(User user);
+
+    public int updateById(User record);
 }

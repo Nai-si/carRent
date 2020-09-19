@@ -10,5 +10,8 @@ import com.car.entity.User;
  */
 public interface UserService {
     public User login(String tel,String password);
+
     public void register(String tel ,String password,String email,String invitation);
+
+    public int updateById(User record);
 }

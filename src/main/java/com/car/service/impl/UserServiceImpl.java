@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
 
         userDao.register(user);
     }
+
+    @Override
+    public int updateById(User record) {
+        return userDao.updateById(record);
+    }
 }
