@@ -22,6 +22,7 @@ import java.util.Map;
  * @Description: 汽车信息控制器
  */
 @Controller
+@ResponseBody
 @RequestMapping("/car")
 public class CarController {
 
@@ -35,7 +36,6 @@ public class CarController {
      * @return
      */
     @RequestMapping("/showCar.do")
-    @ResponseBody
     public Map<String ,Object> showCar(Integer page,Integer limit){
         List<Car> cars = carService.selectByCityId(DistrictUtils.getQuiz2(), page, limit);
         long total = ((Page) cars).getTotal();
@@ -53,7 +53,6 @@ public class CarController {
      * @return
      */
     @RequestMapping("/findCar.do")
-    @ResponseBody
     public JsonResult findCar(int id){
         Car car = carService.findCar(id);
         return new JsonResult(1,car);

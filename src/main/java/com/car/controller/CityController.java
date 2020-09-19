@@ -19,6 +19,7 @@ import java.util.List;
  * @Description: 城市列表控制器
  */
 @Controller
+@ResponseBody
 @RequestMapping("city")
 public class CityController {
 
@@ -32,7 +33,6 @@ public class CityController {
      * @return
      */
     @RequestMapping("/select.do")
-    @ResponseBody
     public JsonResult select(String pid, HttpSession session){
         if (pid == null) {
             pid = "0";
@@ -50,7 +50,6 @@ public class CityController {
      * @return
      */
     @RequestMapping("/selectName.do")
-    @ResponseBody
     public JsonResult selectName(){
         City city = cityService.selectMsg(DistrictUtils.getQuiz1());
         City city1 = cityService.selectMsg(DistrictUtils.getQuiz4());
@@ -68,7 +67,6 @@ public class CityController {
      * @return
      */
     @RequestMapping("/button.do")
-    @ResponseBody
     public JsonResult button(Integer quiz1,Integer quiz2,Integer quiz3,Integer quiz4){
         if (quiz1==null||quiz2==null||quiz3==null||quiz4==null){
             return new JsonResult(0,"请选择正确的城市或门店");

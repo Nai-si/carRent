@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
  * @Description: 登录控制器
  */
 @Controller
+@ResponseBody
 public class LoginController {
     @Autowired
     private UserService userService;
@@ -31,7 +32,6 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/login.do")
-    @ResponseBody
     public JsonResult login(String tel, String password, String email, HttpSession session){
         User user = userService.login(tel, password);
         session.setAttribute(StrUtils.LOGIN_USER,user);
@@ -44,7 +44,6 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/query.do")
-    @ResponseBody
     public JsonResult query(HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         if (user == null) {
@@ -59,7 +58,6 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/register.do")
-    @ResponseBody
     public JsonResult register(String tel , String password,String email,String invitation){
 
         userService.register(tel,password,email,invitation);
@@ -74,7 +72,6 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/loginStusta.do")
-    @ResponseBody
     public JsonResult loginStusta(HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         return new JsonResult(1,user.getTel());

@@ -27,6 +27,7 @@ import java.util.Map;
  * @Description: 订单控制器
  */
 @Controller
+@ResponseBody
 @RequestMapping("/order")
 public class OrderController {
 
@@ -43,7 +44,6 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/addCar.do")
-    @ResponseBody
     public JsonResult addCar(Integer id, double oprice, HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         if (user == null) {
@@ -74,7 +74,6 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/orderSelect.do")
-    @ResponseBody
     public Map<String , Object> orderSelect(Integer page,Integer limit,HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         if (user == null) {
@@ -97,7 +96,6 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/delete.do")
-    @ResponseBody
     public JsonResult delete(Integer id){
         orderService.deleteById(id);
         return new JsonResult(1,"订单删除成功");
