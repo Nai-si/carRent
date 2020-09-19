@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public int updateById(User record) {
         return userDao.updateById(record);
     }
+
+    @Override
+    public int updatePasswordById(User record) {
+        return userDao.updatePasswordById(record);
+    }
 }

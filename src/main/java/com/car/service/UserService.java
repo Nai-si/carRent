@@ -14,4 +14,6 @@ public interface UserService {
     public void register(String tel ,String password,String email,String invitation);
 
     public int updateById(User record);
+
+    public int updatePasswordById(User record);
 }

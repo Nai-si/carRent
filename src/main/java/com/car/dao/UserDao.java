@@ -14,4 +14,6 @@ public interface UserDao {
     public void register(User user);
 
     public int updateById(User record);
+
+    public int updatePasswordById(User record);
 }

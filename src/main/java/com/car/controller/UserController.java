@@ -18,13 +18,20 @@ import javax.servlet.http.HttpSession;
  * @Description:
  */
 @Controller
-@RequestMapping("/user")
 @ResponseBody
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    /**
+     * 修改用户信息
+     * @param tel
+     * @param email
+     * @param session
+     * @return
+     */
     @RequestMapping("/update.do")
     public JsonResult updateById(String tel , String email, HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
@@ -34,6 +41,18 @@ public class UserController {
         return new JsonResult(1,"信息修改成功");
     }
 
-
+    /**
+     * 修改用户密码
+     * @param password
+     * @param session
+     * @return
+     */
+    @RequestMapping("/modifypassword.do")
+    public JsonResult update(String password,HttpSession session){
+        User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
+        user.setPassword(password);
+        userService.updatePasswordById(user);
+        return new JsonResult(1,"密码修改成功");
+    }
 
 }
