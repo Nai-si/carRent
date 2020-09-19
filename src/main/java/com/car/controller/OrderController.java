@@ -83,7 +83,7 @@ public class OrderController {
         List<OrderTwo> orders = orderService.orderSelect (id,page,limit);
         long total = ((Page) orders).getTotal();
         Map<String , Object> map = new HashMap<>();
-        map.put("code",0);
+        map.put("code", StrUtils.MESSAGE_FAIL);
         map.put("msg","");
         map.put("count",total);
         map.put("data",orders);
@@ -98,7 +98,7 @@ public class OrderController {
     @RequestMapping("/delete.do")
     public JsonResult delete(Integer id){
         orderService.deleteById(id);
-        return new JsonResult(1,"订单删除成功");
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,"订单删除成功");
     }
 
 }

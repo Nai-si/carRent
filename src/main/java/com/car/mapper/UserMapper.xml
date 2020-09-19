@@ -36,14 +36,15 @@
         )
     </insert>
     <update id="updateById" parameterType="com.car.entity.User">
-        update sys_user set tel = #{tel},
-        email = #{email}
-        where id=#{id}
-    </update>
-    <update id="updatePasswordById" parameterType="com.car.entity.User">
         update sys_user set
+        email = #{email},
         password = #{password}
         where id=#{id}
     </update>
+<!--    <update id="updatePasswordById" parameterType="com.car.entity.User">-->
+<!--        update sys_user set-->
+<!--        password = #{password}-->
+<!--        where id=#{id}-->
+<!--    </update>-->
 
 </mapper>

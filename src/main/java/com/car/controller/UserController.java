@@ -27,18 +27,16 @@ public class UserController {
 
     /**
      * 修改用户信息
-     * @param tel
      * @param email
      * @param session
      * @return
      */
     @RequestMapping("/update.do")
-    public JsonResult updateById(String tel , String email, HttpSession session){
+    public JsonResult updateById(String email, HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
-        user.setTel(tel);
         user.setEmail(email);
         userService.updateById(user);
-        return new JsonResult(1,"信息修改成功");
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,"信息修改成功");
     }
 
     /**
@@ -51,8 +49,20 @@ public class UserController {
     public JsonResult update(String password,HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         user.setPassword(password);
-        userService.updatePasswordById(user);
-        return new JsonResult(1,"密码修改成功");
+        userService.updateById(user);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,"密码修改成功");
     }
 
+    /**
+     * 用户注册
+     * @return
+     */
+    @RequestMapping("/register.do")
+    public JsonResult register(String tel,String password,String email,String invitation){
+
+        userService.register(tel,password,email,invitation);
+        User user = userService.login(tel, password);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,user);
+
+    }
 }

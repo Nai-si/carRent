@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @ResponseBody
+@RequestMapping("/login")
 public class LoginController {
     @Autowired
     private UserService userService;
@@ -35,7 +36,7 @@ public class LoginController {
     public JsonResult login(String tel, String password, String email, HttpSession session){
         User user = userService.login(tel, password);
         session.setAttribute(StrUtils.LOGIN_USER,user);
-        return new JsonResult(1,user);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,user);
     }
 
     /**
@@ -47,24 +48,13 @@ public class LoginController {
     public JsonResult query(HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
         if (user == null) {
-            return new JsonResult(0,"请先登录");
+            return new JsonResult(StrUtils.MESSAGE_FAIL,"请先登录");
         }else{
-            return new JsonResult(1,user);
+            return new JsonResult(StrUtils.MESSAGE_SUCCESS,user);
         }
     }
 
-    /**
-     * 用户注册
-     * @return
-     */
-    @RequestMapping("/register.do")
-    public JsonResult register(String tel , String password,String email,String invitation){
 
-        userService.register(tel,password,email,invitation);
-        User user = userService.login(tel, password);
-        return new JsonResult(1,user);
-
-    }
 
     /**
      * 获取用户手机号
@@ -74,7 +64,7 @@ public class LoginController {
     @RequestMapping("/loginStusta.do")
     public JsonResult loginStusta(HttpSession session){
         User user = (User) session.getAttribute(StrUtils.LOGIN_USER);
-        return new JsonResult(1,user.getTel());
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,user.getTel());
     }
 
 }

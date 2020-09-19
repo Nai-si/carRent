@@ -133,7 +133,7 @@
         form.on('submit(demo1)', function(data){
             console.log(data)
             $.ajax({
-                url:"register.do",
+                url:"/user/register.do",
                 type:"post",
                 data:$("form").serialize(),
                 dataType:'json',

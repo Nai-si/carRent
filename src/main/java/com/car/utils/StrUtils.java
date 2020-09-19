@@ -7,5 +7,14 @@ package com.car.utils;
  * @Description:
  */
 public class StrUtils {
+    /**
+     * 登录用户名
+     */
     public static final String LOGIN_USER = "loginUser";
+
+    //json模型的状态
+
+    public static final int MESSAGE_SUCCESS = 1;
+    public static final int MESSAGE_FAIL = 0;
+
 }

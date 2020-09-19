@@ -5,6 +5,7 @@ import com.car.common.JsonResult;
 import com.car.entity.Car;
 import com.car.service.CarService;
 import com.car.utils.DistrictUtils;
+import com.car.utils.StrUtils;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,7 @@ public class CarController {
         List<Car> cars = carService.selectByCityId(DistrictUtils.getQuiz2(), page, limit);
         long total = ((Page) cars).getTotal();
         Map<String , Object> map = new HashMap<>();
-        map.put("code",0);
+        map.put("code",StrUtils.MESSAGE_FAIL);
         map.put("msg","");
         map.put("count",total);
         map.put("data",cars);
@@ -55,7 +56,7 @@ public class CarController {
     @RequestMapping("/findCar.do")
     public JsonResult findCar(int id){
         Car car = carService.findCar(id);
-        return new JsonResult(1,car);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,car);
     }
 
 

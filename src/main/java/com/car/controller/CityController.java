@@ -4,6 +4,7 @@ import com.car.common.JsonResult;
 import com.car.entity.City;
 import com.car.service.CityService;
 import com.car.utils.DistrictUtils;
+import com.car.utils.StrUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,7 @@ public class CityController {
         System.out.println("i = " + i);
         List<City> list = cityService.selectAll(i);
         System.out.println(i);
-        return new JsonResult(1,list);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,list);
     }
 
 
@@ -54,7 +55,7 @@ public class CityController {
         City city = cityService.selectMsg(DistrictUtils.getQuiz1());
         City city1 = cityService.selectMsg(DistrictUtils.getQuiz4());
         String[] citys = {city.getName() , city1.getName()};
-        return new JsonResult(1,citys);
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,citys);
 
     }
 
@@ -69,12 +70,12 @@ public class CityController {
     @RequestMapping("/button.do")
     public JsonResult button(Integer quiz1,Integer quiz2,Integer quiz3,Integer quiz4){
         if (quiz1==null||quiz2==null||quiz3==null||quiz4==null){
-            return new JsonResult(0,"请选择正确的城市或门店");
+            return new JsonResult(StrUtils.MESSAGE_FAIL,"请选择正确的城市或门店");
         }
         DistrictUtils.setQuiz1(quiz1);
         DistrictUtils.setQuiz2(quiz2);
         DistrictUtils.setQuiz3(quiz3);
         DistrictUtils.setQuiz4(quiz4);
-        return new JsonResult(1,"选择成功,请稍后");
+        return new JsonResult(StrUtils.MESSAGE_SUCCESS,"选择成功,请稍后");
     }
 }
