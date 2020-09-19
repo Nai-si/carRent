@@ -24,7 +24,7 @@ import java.util.Map;
  * @ProjectName: carRent
  * @Author: Jsx
  * @Time: 2020/9/18 16:44
- * @Description:
+ * @Description: 订单控制器
  */
 @Controller
 @RequestMapping("/order")
@@ -66,6 +66,13 @@ public class OrderController {
 
     }
 
+    /**
+     * 查询订单
+     * @param page
+     * @param limit
+     * @param session
+     * @return
+     */
     @RequestMapping("/orderSelect.do")
     @ResponseBody
     public Map<String , Object> orderSelect(Integer page,Integer limit,HttpSession session){
@@ -84,6 +91,11 @@ public class OrderController {
         return map;
     }
 
+    /**
+     * 删除订单
+     * @param id
+     * @return
+     */
     @RequestMapping("/delete.do")
     @ResponseBody
     public JsonResult delete(Integer id){

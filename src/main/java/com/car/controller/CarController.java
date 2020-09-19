@@ -19,7 +19,7 @@ import java.util.Map;
  * @ProjectName: carRent
  * @Author: Jsx
  * @Time: 2020/9/18 15:29
- * @Description:
+ * @Description: 汽车信息控制器
  */
 @Controller
 @RequestMapping("/car")
@@ -29,7 +29,7 @@ public class CarController {
     private CarService carService;
 
     /**
-     * 车辆信息展示
+     * 获取汽车列表
      * @param page
      * @param limit
      * @return
@@ -48,7 +48,7 @@ public class CarController {
     }
 
     /**
-     * 车辆查询
+     * 获取汽车详情
      * @param id
      * @return
      */

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * @ProjectName: carRent
  * @Author: Jsx
  * @Time: 2020/9/17 16:49
- * @Description:
+ * @Description: 登录控制器
  */
 @Controller
 public class LoginController {

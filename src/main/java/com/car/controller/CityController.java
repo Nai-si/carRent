@@ -16,7 +16,7 @@ import java.util.List;
  * @ProjectName: carRent
  * @Author: Jsx
  * @Time: 2020/9/18 9:15
- * @Description:
+ * @Description: 城市列表控制器
  */
 @Controller
 @RequestMapping("city")
@@ -26,7 +26,7 @@ public class CityController {
     private CityService cityService;
 
     /**
-     * 查询城市信息
+     * 获取城市列表
      * @param pid
      * @param session
      * @return
@@ -46,7 +46,7 @@ public class CityController {
 
 
     /**
-     * 获取店铺信息
+     * 获取租车门店
      * @return
      */
     @RequestMapping("/selectName.do")
@@ -60,7 +60,7 @@ public class CityController {
     }
 
     /**
-     * 根据选择的城市去租车
+     * 设置选择城市
      * @param quiz1
      * @param quiz2
      * @param quiz3
