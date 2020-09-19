@@ -16,4 +16,7 @@
         inner join sys_user u
         where u.id=o.uid and u.id=#{id}
     </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from sys_order where id=#{id}
+    </delete>
 </mapper>

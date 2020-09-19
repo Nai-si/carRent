@@ -15,4 +15,6 @@ public interface OrderDao {
     public void addCar(Order order);
 
     public List<OrderTwo> orderSelect(int id);
+
+    public int deleteById(Integer id);
 }

@@ -35,4 +35,9 @@ public class OrderServiceImpl implements OrderService {
         List<OrderTwo> orders = orderDao.orderSelect(id);
         return orders;
     }
+
+    @Override
+    public int deleteById(Integer id) {
+        return orderDao.deleteById(id);
+    }
 }

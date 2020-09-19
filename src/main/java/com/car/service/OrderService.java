@@ -15,4 +15,6 @@ public interface OrderService {
     public void addCar(Order order);
 
     public List<OrderTwo> orderSelect(int id , int page , int limit);
+
+    public int deleteById(Integer id);
 }

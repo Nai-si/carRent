@@ -84,4 +84,11 @@ public class OrderController {
         return map;
     }
 
+    @RequestMapping("/delete.do")
+    @ResponseBody
+    public JsonResult delete(Integer id){
+        orderService.deleteById(id);
+        return new JsonResult(1,"订单删除成功");
+    }
+
 }
