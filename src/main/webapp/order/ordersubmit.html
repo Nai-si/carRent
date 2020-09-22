@@ -151,7 +151,7 @@
             // sp3
             $.ajax({
                 type:"get",
-                url:"http://localhost:8080/carRent/login/loginStusta.do",
+                url:"/carRent/login/loginStusta.do",
                 dataType:"json",
                 success:function(data){
                     console.log(data)
@@ -167,7 +167,7 @@
             var id = window.location.search;
             $.ajax({
                 type:"get",
-                url:"http://localhost:8080/carRent/car/findCar.do"+id,
+                url:"/carRent/car/findCar.do"+id,
                 dataType:"json",
                 success:function(data){
                     if(data.code==1) {
@@ -193,7 +193,7 @@
             console.log(total)
             $.ajax({
                 type:"get",
-                url:"http://localhost:8080/carRent/order/addCar.do"+id + "&oprice="+ total,
+                url:"/carRent/order/addCar.do"+id + "&oprice="+ total,
                 dataType:"json",
                 success:function(data){
                     if(data.code!=0){
