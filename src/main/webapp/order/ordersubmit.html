@@ -193,7 +193,7 @@
             console.log(total)
             $.ajax({
                 type:"get",
-                url:"/order/addCar.do"+id + "&oprice="+ total,
+                url:"carRent/order/addCar.do"+id + "&oprice="+ total,
                 dataType:"json",
                 success:function(data){
                     if(data.code!=0){

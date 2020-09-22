@@ -161,7 +161,7 @@
     function deleteOrder(id) {
         $.ajax({
             type:"post",
-            url:"/order/delete.do",
+            url:"/carRent/order/delete.do",
             dataType:"json",
             data: {"id":id},
             success:function(data){

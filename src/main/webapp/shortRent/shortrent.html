@@ -95,7 +95,7 @@
         /* 还车地点的区级下拉框的动态添加 */
         form.on('select(quiz3)', function (data) {
             layui.$.ajax({              // 使用layui模块化加载
-                url: "/city/select.do?pid=" + data.value,
+                url: "/carRent/city/select.do?pid=" + data.value,
                 dataType: 'json',
                 type: 'get',
                 success: function (data) {
@@ -112,7 +112,7 @@
             console.log(data.field)
             layui.$.ajax({
                 type: 'post',
-                url: '/city/button.do',
+                url: '/carRent/city/button.do',
                 data: $("#form1").serialize(),
                 dataType: 'json',
                 success: function (data) {
@@ -134,7 +134,7 @@
 
     function city1() {
         $.ajax({ // 使用layui模块化加载
-            url: "/city/select.do",
+            url: "/carRent/city/select.do",
             type: 'get',
             dataType: 'json',
             success: function (data) {

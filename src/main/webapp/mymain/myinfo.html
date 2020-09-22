@@ -113,7 +113,7 @@
     $(function () {
         $.ajax({
             type:"get",
-            url:"/login/query.do",
+            url:"/carRent/login/query.do",
             dataType:"json",
             success:function(data){
                 if(data.code==1){
@@ -129,7 +129,7 @@
     function modifyInfo (){
         $.ajax({
             type:"post",
-            url:"/user/update.do",
+            url:"/carRent/user/update.do",
             dataType:"json",
             data: {"email":vm.email},
             success:function(data){
@@ -144,7 +144,7 @@
     function modifyPassword (){
         $.ajax({
             type:"post",
-            url:"/user/modifypassword.do",
+            url:"/carRent/user/modifypassword.do",
             dataType:"json",
             data: {"password":vm.password},
             success:function(data){
