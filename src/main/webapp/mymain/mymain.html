@@ -95,7 +95,7 @@
     $(function () {
         $.ajax({
             type:"get",
-            url:"/login/query.do",
+            url:"/carRent/login/query.do",
             dataType:"json",
             success:function(data){
                 if(data.code==1){
@@ -120,7 +120,7 @@
             //z找到table  id叫test的组件
             elem: '#test'
             , id: "transferTable"
-            , url: '/order/orderSelect.do'
+            , url: '/carRent/order/orderSelect.do'
             , totalRow: true
             //这个很关键，就是解析 json数据库中数据的 一定要注意键值
             , cols: [[
